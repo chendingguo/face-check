@@ -1,0 +1,269 @@
+{
+	"classes": "table table-hover",
+	"undefinedText": "--",
+	"sortOrder": "asc",
+	"sortStable": false,
+	"striped": true,
+	"columns": [
+		[
+			{
+				"radio": false,
+				"checkbox": true,
+				"checkboxEnabled": true,
+				"sortable": false,
+				"order": "asc",
+				"visible": true,
+				"switchable": true,
+				"clickToSelect": true,
+				"searchable": true,
+				"searchFormatter": true,
+				"cardVisible": true,
+				"escape": false,
+				"fieldIndex": 0,
+				"field": 0
+			},
+			{
+				"radio": false,
+				"checkbox": false,
+				"checkboxEnabled": true,
+				"sortable": false,
+				"order": "asc",
+				"visible": true,
+				"switchable": true,
+				"clickToSelect": true,
+				"searchable": true,
+				"searchFormatter": true,
+				"cardVisible": true,
+				"escape": false,
+				"field": "id",
+				"title": "ID",
+				"fieldIndex": 1
+			},
+			{
+				"radio": false,
+				"checkbox": false,
+				"checkboxEnabled": true,
+				"sortable": false,
+				"order": "asc",
+				"visible": true,
+				"switchable": true,
+				"clickToSelect": true,
+				"searchable": true,
+				"searchFormatter": true,
+				"cardVisible": true,
+				"escape": false,
+				"field": "name",
+				"title": "姓名",
+				"fieldIndex": 2
+			},
+			{
+				"radio": false,
+				"checkbox": false,
+				"checkboxEnabled": true,
+				"sortable": true,
+				"order": "asc",
+				"visible": true,
+				"switchable": true,
+				"clickToSelect": true,
+				"searchable": true,
+				"searchFormatter": true,
+				"cardVisible": true,
+				"escape": false,
+				"field": "age",
+				"title": "年龄",
+				"fieldIndex": 3
+			},
+			{
+				"radio": false,
+				"checkbox": false,
+				"checkboxEnabled": true,
+				"sortable": false,
+				"order": "asc",
+				"visible": true,
+				"switchable": true,
+				"clickToSelect": true,
+				"searchable": true,
+				"searchFormatter": true,
+				"cardVisible": true,
+				"escape": false,
+				"field": "name",
+				"title": "操作",
+				"align": "center",
+				"valign": "middle",
+				"fieldIndex": 4
+			}
+		]
+	],
+	"data": [
+		{
+			"limit": 0,
+			"offset": 0,
+			"id": 1,
+			"name": "name1",
+			"age": 1,
+			"password": "1"
+		},
+		{
+			"limit": 0,
+			"offset": 0,
+			"id": 2,
+			"name": "name2",
+			"age": 2,
+			"password": "2"
+		},
+		{
+			"limit": 0,
+			"offset": 0,
+			"id": 3,
+			"name": "name3",
+			"age": 3,
+			"password": "3"
+		},
+		{
+			"limit": 0,
+			"offset": 0,
+			"id": 4,
+			"name": "name4",
+			"age": 4,
+			"password": "4"
+		},
+		{
+			"limit": 0,
+			"offset": 0,
+			"id": 5,
+			"name": "name5",
+			"age": 5,
+			"password": "5"
+		},
+		{
+			"limit": 0,
+			"offset": 0,
+			"id": 6,
+			"name": "name6",
+			"age": 6,
+			"password": "6"
+		},
+		{
+			"limit": 0,
+			"offset": 0,
+			"id": 7,
+			"name": "name7",
+			"age": 7,
+			"password": "7"
+		},
+		{
+			"limit": 0,
+			"offset": 0,
+			"id": 8,
+			"name": "name8",
+			"age": 8,
+			"password": "8"
+		},
+		{
+			"limit": 0,
+			"offset": 0,
+			"id": 9,
+			"name": "name9",
+			"age": 9,
+			"password": "9"
+		},
+		{
+			"limit": 0,
+			"offset": 0,
+			"id": 10,
+			"name": "name10",
+			"age": 10,
+			"password": "10"
+		}
+	],
+	"totalField": "total",
+	"dataField": "rows",
+	"method": "get",
+	"cache": false,
+	"contentType": "application/json",
+	"dataType": "json",
+	"ajaxOptions": {
+		
+	},
+	"queryParamsType": "limit",
+	"pagination": true,
+	"onlyInfoPagination": false,
+	"paginationLoop": true,
+	"sidePagination": "server",
+	"totalRows": 17,
+	"pageNumber": 1,
+	"pageSize": 10,
+	"pageList": [
+		10,
+		25,
+		50,
+		100
+	],
+	"paginationHAlign": "right",
+	"paginationVAlign": "bottom",
+	"paginationDetailHAlign": "left",
+	"paginationPreText": "&lsaquo;",
+	"paginationNextText": "&rsaquo;",
+	"search": false,
+	"searchOnEnterKey": false,
+	"strictSearch": true,
+	"searchAlign": "right",
+	"selectItemName": "btSelectItem",
+	"showHeader": true,
+	"showFooter": false,
+	"showColumns": true,
+	"showPaginationSwitch": false,
+	"showRefresh": true,
+	"showToggle": true,
+	"buttonsAlign": "right",
+	"smartDisplay": true,
+	"escape": false,
+	"minimumCountColumns": 2,
+	"cardView": false,
+	"detailView": false,
+	"trimOnSearch": true,
+	"clickToSelect": true,
+	"singleSelect": false,
+	"toolbarAlign": "left",
+	"checkboxHeader": true,
+	"sortable": true,
+	"silentSort": true,
+	"maintainSelected": false,
+	"searchTimeOut": 500,
+	"searchText": "",
+	"buttonsClass": "default",
+	"iconsPrefix": "glyphicon",
+	"icons": {
+		"paginationSwitchDown": "glyphicon-collapse-down icon-chevron-down",
+		"paginationSwitchUp": "glyphicon-collapse-up icon-chevron-up",
+		"refresh": "glyphicon-refresh icon-refresh",
+		"toggle": "glyphicon-list-alt icon-list-alt",
+		"columns": "glyphicon-th icon-th",
+		"detailOpen": "glyphicon-plus icon-plus",
+		"detailClose": "glyphicon-minus icon-minus",
+		"export": "glyphicon-export icon-share"
+	},
+	"showExport": true,
+	"exportDataType": "basic",
+	"exportTypes": [
+		"json",
+		"xml",
+		"csv",
+		"txt",
+		"sql",
+		"excel"
+	],
+	"exportOptions": {
+		
+	},
+	"en": {
+		
+	},
+	"en-US": {
+		
+	},
+	"url": "/demo/getUsers",
+	"toolbar": "#toolbar",
+	"height": 500,
+	"totalPages": 2
+}
