@@ -25,13 +25,11 @@ public class FaceCheckService {
     @Value("${image.path}")
     private String imagePath;
 
-
-
-
+    private String GROUP_ID = "group1";
 
 
     public JSONObject matchFace() {
-        AipFace client=clientManager.getAipFaceClient( );
+        AipFace client = clientManager.getAipFaceClient();
 
         HashMap<String, String> options = new HashMap<String, String>();
         options.put("ext_fields", "qualities");
@@ -44,53 +42,51 @@ public class FaceCheckService {
         ArrayList<String> images = new ArrayList<String>();
         images.add(path1);
         images.add(path2);
-        JSONObject res =client.match(images, options);
+        JSONObject res = client.match(images, options);
         System.out.println(res.toString(2));
         return res;
     }
 
     public JSONObject addUser(String userName, String image) {
         // 传入可选参数调用接口
-        AipFace client=clientManager.getAipFaceClient( );
+        AipFace client = clientManager.getAipFaceClient();
         HashMap<String, String> options = new HashMap<>();
         options.put("action_type", "replace");
         int idx = image.lastIndexOf("/");
-        String uid = image.substring(idx + 1, image.length()).replace(".jpg","");
+        String uid = image.substring(idx + 1, image.length()).replace(".jpg", "");
         String userInfo = userName;
         String groupId = "group1";
 
-        JSONObject res =client.addUser(uid, userInfo, groupId, image, options);
+        JSONObject res = client.addUser(uid, userInfo, groupId, image, options);
         System.out.println(res.toString(2));
-
-
 
 
         return res;
 
     }
 
-    public ResultDataModel<UserInfo> getUsers(UserInfo userInfo){
-        AipFace client=clientManager.getAipFaceClient( );
-        ResultDataModel resultDataModel=new ResultDataModel();
+    public ResultDataModel<UserInfo> getUsers(UserInfo userInfo) {
+        AipFace client = clientManager.getAipFaceClient();
+        ResultDataModel resultDataModel = new ResultDataModel();
 
         String groupId = "group1";
-        HashMap<String, String> options= new HashMap<String, String>();
+        HashMap<String, String> options = new HashMap<String, String>();
         options.put("start", "0");
         options.put("end", "50");
         // 组内用户列表查询
-        JSONObject res =client.getGroupUsers(groupId, options);
+        JSONObject res = client.getGroupUsers(groupId, options);
 
-        long total= res.getLong("result_num");
-        List<UserInfo> uiList=new ArrayList<>();
-        JSONArray array=res.getJSONArray("result");
-        for(int i=0;i<array.length();i++){
-            UserInfo ui=new UserInfo();
-            JSONObject obj=array.getJSONObject(i);
-            String userId=obj.getString("uid");
-            String info=obj.getString("user_info");
+        long total = res.getLong("result_num");
+        List<UserInfo> uiList = new ArrayList<>();
+        JSONArray array = res.getJSONArray("result");
+        for (int i = 0; i < array.length(); i++) {
+            UserInfo ui = new UserInfo();
+            JSONObject obj = array.getJSONObject(i);
+            String userId = obj.getString("uid");
+            String info = obj.getString("user_info");
             ui.setId(userId);
             ui.setName(info);
-            String images="/images/"+userId+".jpg";
+            String images = "/images/" + userId + ".jpg";
             ui.setImage(images);
             uiList.add(ui);
 
@@ -99,17 +95,33 @@ public class FaceCheckService {
         resultDataModel.setTotal(total);
         System.out.println(res.toString(2));
 
-        return  resultDataModel;
+        return resultDataModel;
     }
 
-    public String deleteUser(String userId){
-        AipFace client=clientManager.getAipFaceClient( );
+    public String deleteUser(String userId) {
+        AipFace client = clientManager.getAipFaceClient();
         // 传入可选参数调用接口
         HashMap<String, String> options = new HashMap<>();
-        options.put("group_id", "group1");
+        options.put("group_id", GROUP_ID);
 
         // 人脸删除
-        JSONObject res =client.deleteUser(userId, options);
+        JSONObject res = client.deleteUser(userId, options);
+        return res.toString(2);
+    }
+
+    public String identifyUser(String image) {
+        AipFace client = clientManager.getAipFaceClient();
+        HashMap<String, String> options = new HashMap<String, String>();
+        options.put("ext_fields", "faceliveness");
+        options.put("user_top_num", "3");
+
+        String groupId = GROUP_ID;
+
+        // 参数为本地图片路径
+
+        JSONObject res = client.identifyUser(groupId, image, options);
+        System.out.println(res.toString(2));
+
         return res.toString(2);
     }
 
@@ -126,9 +138,9 @@ public class FaceCheckService {
         String photoPath = imagePath + System.currentTimeMillis() + ".jpg";
         BASE64Decoder decoder = new BASE64Decoder();
         try {
-// 解密
+            // 解密
             byte[] b = decoder.decodeBuffer(imgStr);
-// 处理数据
+            // 处理数据
             for (int i = 0; i < b.length; ++i) {
                 if (b[i] < 0) {
                     b[i] += 256;

@@ -79,6 +79,29 @@ public class UserController {
 
     }
 
+    /**
+     * 用于计算指定组内用户，与上传图像中人脸的相似度。识别前提为您已经创建了一个人脸库。
+     * <p>
+     * 典型应用场景：如人脸闸机，考勤签到，安防监控等。
+     *
+     * @param imgData
+     * @return
+     */
+    @RequestMapping("/identifyUser")
+    @ResponseBody
+    public String identifyUser(
+            @RequestParam(value = "imgData", required = false, defaultValue = "") String imgData) {
+        String image = faceCheckService.generateImage(imgData.substring(22));
+        String result = "图片捕捉失败";
+        if (!StringUtils.isEmpty(image)) {
+            result = faceCheckService.identifyUser(image);
+
+        }
+        return result;
+
+
+    }
+
 
 //    @RequestMapping("/getUserInfo")
 //    @ResponseBody
