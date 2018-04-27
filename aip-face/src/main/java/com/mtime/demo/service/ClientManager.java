@@ -8,19 +8,21 @@ import org.springframework.stereotype.Service;
 public class ClientManager {
 
     @Value("${baidu.app.id}")
-    private  String APP_ID;
+    private String APP_ID;
 
     @Value("${baidu.api.key}")
-    private  String API_KEY;
+    private String API_KEY;
 
     @Value("${baidu.secret.key}")
-    private  String SECRET_KEY;
+    private String SECRET_KEY;
 
+    private ClientManager() {
 
+    }
 
-    public static AipFace client=null;
+    public static AipFace client = null;
 
-    public  AipFace getAipFaceClient() {
+    public AipFace getAipFaceClient() {
         if (client != null) {
             return client;
         }
